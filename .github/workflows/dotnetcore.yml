@@ -34,7 +34,7 @@ jobs:
       with:
         dotnet-version: 3.1.101      
     - name: Run tests
-      run: dotnet test src 
+      run: dotnet test 
   
   publish:
     runs-on: ubuntu-latest
