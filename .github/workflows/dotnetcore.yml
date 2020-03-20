@@ -19,9 +19,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-        source-url: https://nuget.pkg.github.com/ChristianHellwig/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}  
     
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -29,8 +26,13 @@ jobs:
     - name: Build solution and generate NuGet package
       run: |  
         cd LessPaper.Shared
-        dotnet pack -c Release -o out  
+        dotnet pack -c Release 
     
-    - name: Push generated package to GitHub registry
-      run: dotnet nuget push ./LessPaper.Shared/out/*.nupkg --skip-duplicate --no-symbols true
+    - name: Publish NuGet
+      uses: rohith/publish-nuget@v2.2.0
+      with:
+        # Filepath of the project to be packaged, relative to root of repository
+        PROJECT_FILE_PATH: LessPaper.Shared/LessPaper.Shared.csproj
+        # API key for the NuGet feed
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
   
