@@ -34,5 +34,6 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: LessPaper.Shared/LessPaper.Shared.csproj
         # API key for the NuGet feed
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-  
+        NUGET_KEY: $NUGET_KEY
+      env:
+        NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
