@@ -8,4 +8,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\WriteApi\" />
+  </ItemGroup>
+
 </Project>
