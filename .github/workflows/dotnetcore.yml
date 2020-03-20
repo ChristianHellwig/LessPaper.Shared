@@ -8,31 +8,45 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout
-      uses: actions/checkout@v2
-      
-    - name: Define runtime   
+      uses: actions/checkout@v2      
+    - name: Define runtime for build
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
-    
+        dotnet-version: 3.1.101    
     - name: Build with dotnet
-      run: dotnet build --configuration Release
-    
+      run: dotnet build --configuration Release    
     - name: Build solution and generate NuGet package
       run: |  
         cd LessPaper.Shared
         dotnet pack -c Release 
-    
-    - name: Publish NuGet
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2      
+    - name: Define runtime for test   
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101      
+    - name: Run tests
+      run: dotnet test src 
+  
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2      
+    - name: Define runtime for publishing 
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101        
+    - name: Publish to NuGet
       uses: rohith/publish-nuget@v2.2.0
       with:
-        # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: LessPaper.Shared/LessPaper.Shared.csproj
         PACKAGE_NAME: LessPaper.Shared
-        # API key for the NuGet feed
         NUGET_KEY: ${{ secrets.NUGET_API_KEY }}    
