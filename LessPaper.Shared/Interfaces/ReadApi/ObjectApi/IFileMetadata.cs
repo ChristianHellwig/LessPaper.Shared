@@ -1,5 +1,6 @@
 ﻿using System;
 using LessPaper.Shared.Enums;
+using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
 {

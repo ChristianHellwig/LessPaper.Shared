@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Web;
+using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
 {
