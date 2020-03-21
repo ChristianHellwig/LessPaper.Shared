@@ -33,7 +33,13 @@ namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
         Task<IUploadMetadata> UploadFile(string directoryId, Stream file, string plaintextKey,
             string encryptedKey, string documentLanguage);
 
-
+        /// <summary>
+        /// Create Directory
+        /// </summary>
+        /// <param name="directoryId">Id of parent direcory</param>
+        /// <param name="subDirectoryName">Name of new Directory</param>
+        /// <returns>Directory Metadata</returns>
+        /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<IDirectoryMetadata> CreateDirectory(string directoryId, string subDirectoryName);
 
         /// <summary>
