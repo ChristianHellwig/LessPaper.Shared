@@ -5,7 +5,7 @@
         /// <summary>
         /// Filename
         /// </summary>
-        string Name { get; }
+        string ObjectName { get; }
 
         /// <summary>
         /// Unique object id
