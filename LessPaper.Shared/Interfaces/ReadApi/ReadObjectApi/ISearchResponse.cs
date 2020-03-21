@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LessPaper.Shared.Interfaces.General;
+﻿using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi
 {
     public interface ISearchResponse
     {

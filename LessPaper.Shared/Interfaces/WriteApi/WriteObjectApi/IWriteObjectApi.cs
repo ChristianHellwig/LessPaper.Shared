@@ -2,11 +2,10 @@
 using System.IO;
 using System.Threading.Tasks;
 using LessPaper.Shared.Interfaces.General;
-using LessPaper.Shared.Interfaces.ReadApi.ObjectApi;
 
-namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
 {
-    public interface IFileApi
+    public interface IWriteObjectApi
     {
         /// <summary>
         /// Upload new file

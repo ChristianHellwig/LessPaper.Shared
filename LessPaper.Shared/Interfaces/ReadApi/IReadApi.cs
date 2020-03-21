@@ -1,4 +1,4 @@
-﻿using LessPaper.Shared.Interfaces.ReadApi.ObjectApi;
+﻿using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
 
 namespace LessPaper.Shared.Interfaces.ReadApi
 {
@@ -7,6 +7,6 @@ namespace LessPaper.Shared.Interfaces.ReadApi
         /// <summary>
         /// Api for reading objects like files, directories or specific properties
         /// </summary>
-        IObjectApi ObjectApi { get; }
+        IReadObjectApi ObjectApi { get; }
     }
 }
