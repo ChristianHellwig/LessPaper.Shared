@@ -1,8 +1,7 @@
 ﻿using System;
 using LessPaper.Shared.Enums;
-using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.General
 {
     public interface IFileMetadata : IMetadata
     {

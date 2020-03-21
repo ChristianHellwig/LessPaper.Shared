@@ -1,7 +1,6 @@
 ﻿using System;
-using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.General
 {
     public interface IMinimalDirectoryMetadata: IMetadata
     {

@@ -1,6 +1,6 @@
 ﻿using LessPaper.Shared.Enums;
 
-namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.General
 {
     public interface ITag
     {

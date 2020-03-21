@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
+﻿
+namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
 {
     public interface IMetadataUpdate
     {

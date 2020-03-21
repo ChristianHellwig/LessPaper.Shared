@@ -1,4 +1,5 @@
-﻿using LessPaper.Shared.Interfaces.WriteApi.FileApi;
+﻿using LessPaper.Shared.Interfaces.ReadApi.ObjectApi;
+using LessPaper.Shared.Interfaces.WriteApi.ObjectApi;
 
 namespace LessPaper.Shared.Interfaces.WriteApi
 {
@@ -7,6 +8,6 @@ namespace LessPaper.Shared.Interfaces.WriteApi
         /// <summary>
         /// Api for writing objects like files, directories or specific properties
         /// </summary>
-        IFileApi FileApi { get; }
+        IObjectApi ObjectApi { get; }
     }
 }
