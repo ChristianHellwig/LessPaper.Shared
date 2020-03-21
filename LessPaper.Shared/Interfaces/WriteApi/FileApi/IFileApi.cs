@@ -39,7 +39,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
         /// <param name="metadataUpdate"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        bool UpdateMetadata(string objectId, IMetadataUpdate metadataUpdate);
+        Task<bool> UpdateMetadata(string objectId, IMetadataUpdate metadataUpdate);
 
         /// <summary>
         /// Flags Object as deleted
@@ -47,6 +47,6 @@ namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
         /// <param name="objectId"></param>
         /// <returns>Return true when file is deleted</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        bool DeleteObject(string objectId);
+        Task<bool> DeleteObject(string objectId);
     }
 }
