@@ -1,6 +1,9 @@
 # LessPaper.Shared
 Shared across LessPaper services
 
+## Status
+![.NET Core](https://github.com/ChristianHellwig/LessPaper.Shared/workflows/.NET%20Core/badge.svg)
+
 ## Git naming conventions
 ### Branch naming conventions
 Use underscores for spaces or special characters
