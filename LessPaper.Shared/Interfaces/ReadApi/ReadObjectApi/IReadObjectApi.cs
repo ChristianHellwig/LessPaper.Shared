@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using System.Web;
 using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi
 {
-    public interface IObjectApi
+    public interface IReadObjectApi
     {
         /// <summary>
         /// Download file or directory

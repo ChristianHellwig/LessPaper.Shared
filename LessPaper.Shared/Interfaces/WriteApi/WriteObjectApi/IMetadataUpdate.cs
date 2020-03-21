@@ -1,5 +1,5 @@
 ﻿
-namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
+namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
 {
     public interface IMetadataUpdate
     {
