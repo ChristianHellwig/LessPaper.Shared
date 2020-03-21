@@ -3,6 +3,7 @@ Shared across LessPaper services
 
 ## Status
 ![.NET Core](https://github.com/ChristianHellwig/LessPaper.Shared/workflows/.NET%20Core/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/ChristianHellwig/LessPaper.Shared/badge.svg?branch=master)](https://coveralls.io/github/ChristianHellwig/LessPaper.Shared?branch=master)
 
 ## Git naming conventions
 ### Branch naming conventions
