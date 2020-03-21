@@ -1,7 +1,6 @@
 ﻿using LessPaper.Shared.Interfaces.General;
-using LessPaper.Shared.Interfaces.ReadApi.ObjectApi;
 
-namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
+namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
 {
     public interface IUploadMetadata: IMetadata
     {

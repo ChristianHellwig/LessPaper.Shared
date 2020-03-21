@@ -1,4 +1,6 @@
-﻿namespace LessPaper.Shared.Interfaces.General
+﻿using System;
+
+namespace LessPaper.Shared.Interfaces.General
 {
     public interface IMetadata
     {
@@ -16,5 +18,15 @@
         /// Size of the object in Byte
         /// </summary>
         uint SizeInByte { get; }
+
+        /// <summary>
+        /// Date of last change
+        /// </summary>
+        DateTime LatestChangeDate { get; }
+
+        /// <summary>
+        /// Date of last view
+        /// </summary>
+        DateTime LatestViewDate { get; }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using LessPaper.Shared.Interfaces.WriteApi.FileApi;
+using LessPaper.Shared.Interfaces.General;
+using LessPaper.Shared.Interfaces.ReadApi.ObjectApi;
 
-namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
+namespace LessPaper.Shared.Interfaces.WriteApi.ObjectApi
 {
     public interface IFileApi
     {
@@ -31,6 +32,15 @@ namespace LessPaper.Shared.Interfaces.WriteApi.FileApi
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<IUploadMetadata> UploadFile(string directoryId, Stream file, string plaintextKey,
             string encryptedKey, string documentLanguage);
+
+        /// <summary>
+        /// Create Directory
+        /// </summary>
+        /// <param name="directoryId">Id of parent direcory</param>
+        /// <param name="subDirectoryName">Name of new Directory</param>
+        /// <returns>Directory Metadata</returns>
+        /// <exception cref="InvalidOperationException">Throws if service not available</exception>
+        Task<IDirectoryMetadata> CreateDirectory(string directoryId, string subDirectoryName);
 
         /// <summary>
         /// Update Metadata of file or directory 

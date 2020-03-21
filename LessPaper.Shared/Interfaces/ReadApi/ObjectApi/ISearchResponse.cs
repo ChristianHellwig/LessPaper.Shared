@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
 {
