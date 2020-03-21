@@ -1,0 +1,35 @@
+name: .NET Core
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2      
+    - name: Define runtime for build
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101    
+    - name: Build with dotnet
+      run: dotnet build --configuration Release    
+    - name: Build solution and generate NuGet package
+      run: |  
+        cd LessPaper.Shared
+        dotnet pack -c Release 
+  
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2      
+    - name: Define runtime for test   
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101      
+    - name: Run tests
+      run: dotnet test 
