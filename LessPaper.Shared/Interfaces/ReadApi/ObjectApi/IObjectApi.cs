@@ -16,7 +16,7 @@ namespace LessPaper.Shared.Interfaces.ReadApi.ObjectApi
         /// <returns>Binary file</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         /// <exception cref="FileNotFoundException"></exception>
-        Task<byte[]> GetObject(string objectId, uint? revisionNumber);
+        Task<Stream> GetObject(string objectId, uint? revisionNumber);
 
         /// <summary>
         /// 
