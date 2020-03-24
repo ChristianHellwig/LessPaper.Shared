@@ -17,7 +17,7 @@ namespace LessPaper.Shared.Interfaces.General
         /// <summary>
         /// Size of the object in Byte
         /// </summary>
-        uint SizeInByte { get; }
+        uint SizeInBytes { get; }
 
         /// <summary>
         /// Date of last change
