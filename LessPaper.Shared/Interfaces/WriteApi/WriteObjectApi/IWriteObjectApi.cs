@@ -11,6 +11,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <summary>
         /// Add File as new Version
         /// </summary>
+        /// <param name="userId">User ID</param>
         /// <param name="directoryId">Id of the parent directory</param>
         /// <param name="file">File</param>
         /// <param name="plaintextKey">Plaintext key used for encrypting the key</param>
@@ -19,17 +20,18 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="fileExtension">Type of the file</param>
         /// <returns>Upload Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IUploadMetadata> UploadFile(string directoryId, Stream file, string plaintextKey,
+        Task<IUploadMetadata> UploadFile(string userId, string directoryId, Stream file, string plaintextKey,
             string encryptedKey, DocumentLanguage documentLanguage, ExtensionType fileExtension);
 
         /// <summary>
         /// Create Directory
         /// </summary>
+        /// <param name="userId">User ID</param>
         /// <param name="directoryId">Id of parent directory</param>
         /// <param name="subDirectoryName">Name of new Directory</param>
         /// <returns>Directory Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IDirectoryMetadata> CreateDirectory(string directoryId, string subDirectoryName);
+        Task<IDirectoryMetadata> CreateDirectory(string userId, string directoryId, string subDirectoryName);
 
         /// <summary>
         /// Update Metadata of file or directory 
