@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
@@ -8,34 +9,23 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
     public interface IWriteObjectApi
     {
         /// <summary>
-        /// Upload new file
+        /// Add File as new Version
         /// </summary>
+        /// <param name="directoryId">Id of the parent directory</param>
         /// <param name="file">File</param>
         /// <param name="plaintextKey">Plaintext key used for encrypting the key</param>
         /// <param name="encryptedKey">Encrypted key used for saving in database</param>
         /// <param name="documentLanguage">Language of the file or all files in the directory</param>
-        /// <returns>Upload Metadata</returns>
-        /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IUploadMetadata> UploadFile(Stream file, string plaintextKey,
-            string encryptedKey, string documentLanguage);
-
-        /// <summary>
-        /// Add File as new Version
-        /// </summary>
-        /// <param name="directoryId"></param>
-        /// <param name="file"></param>
-        /// <param name="plaintextKey"></param>
-        /// <param name="encryptedKey"></param>
-        /// <param name="documentLanguage"></param>
+        /// <param name="fileExtension">Type of the file</param>
         /// <returns>Upload Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<IUploadMetadata> UploadFile(string directoryId, Stream file, string plaintextKey,
-            string encryptedKey, string documentLanguage);
+            string encryptedKey, DocumentLanguage documentLanguage, ExtensionType fileExtension);
 
         /// <summary>
         /// Create Directory
         /// </summary>
-        /// <param name="directoryId">Id of parent direcory</param>
+        /// <param name="directoryId">Id of parent directory</param>
         /// <param name="subDirectoryName">Name of new Directory</param>
         /// <returns>Directory Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
