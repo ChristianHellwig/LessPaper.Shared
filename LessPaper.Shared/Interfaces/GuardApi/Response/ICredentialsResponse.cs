@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LessPaper.Shared.Interfaces.GuardApi
+﻿namespace LessPaper.Shared.Interfaces.GuardApi.Response
 {
     public interface ICredentialsResponse
     {
