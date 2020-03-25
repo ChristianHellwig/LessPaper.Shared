@@ -8,4 +8,9 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\GuardApi\Request\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
