@@ -4,8 +4,14 @@ namespace LessPaper.Shared.Implemenations.WriteApi
 {
     class MetadataUpdate : IMetadataUpdate
     {
-        public string ObjectName { get; set; }
+        public MetadataUpdate(string objectName, string[] parentDirectoryIds)
+        {
+            this.ObjectName = objectName;
+            this.ParentDirectoryIds = parentDirectoryIds;
+        }
 
-        public string[] ParentDirectoryIds { get; set; }
+        public string ObjectName { get;  }
+
+        public string[] ParentDirectoryIds { get;  }
     }
 }
