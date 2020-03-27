@@ -54,5 +54,10 @@ namespace LessPaper.Shared.Interfaces.General
         /// List of tags linked to the current file
         /// </summary>
         ITag[] Tags { get;  }
+
+        /// <summary>
+        /// Language of the document
+        /// </summary>
+        DocumentLanguage Language { get;  }
     }
 }

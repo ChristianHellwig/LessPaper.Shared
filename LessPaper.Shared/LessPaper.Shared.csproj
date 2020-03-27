@@ -3,9 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <RepositoryUrl>https://github.com/ChristianHellwig/LessPaper.Shared</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <LangVersion>8</LangVersion>
+    <Company>LessPaper</Company>
+    <Authors>LessPaper</Authors>
   </PropertyGroup>
 
   <ItemGroup>
