@@ -2,9 +2,7 @@
 using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LessPaper.Shared.Implemenations.WriteApi

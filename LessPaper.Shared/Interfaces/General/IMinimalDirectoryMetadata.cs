@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LessPaper.Shared.Interfaces.General
+﻿namespace LessPaper.Shared.Interfaces.General
 {
     public interface IMinimalDirectoryMetadata: IMetadata
     {

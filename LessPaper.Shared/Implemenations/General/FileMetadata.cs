@@ -1,8 +1,6 @@
 ﻿using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LessPaper.Shared.Implemenations.General
 {

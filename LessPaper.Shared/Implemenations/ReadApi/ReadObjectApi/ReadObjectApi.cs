@@ -1,20 +1,23 @@
 ﻿using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace LessPaper.Shared.Implemenations.ReadApi
 {
     class ReadObjectApi : IReadObjectApi
     {
+        private const string ObjectApiPath = "/objects";
+
+
         public ReadObjectApi()
         {
+
         }
 
-        public Task<IMetadata> GetMetadata(string objectId, uint? revisionNumber)
+        public async Task<IMetadata> GetMetadata(string objectId, uint? revisionNumber)
         {
             throw new NotImplementedException();
         }

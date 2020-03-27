@@ -1,4 +1,4 @@
-﻿using LessPaper.Shared.Interfaces.GuardApi;
+﻿using LessPaper.Shared.Interfaces.GuardApi.Response;
 
 namespace LessPaper.Shared.Implemenations.GuardApi
 {
