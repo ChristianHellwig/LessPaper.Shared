@@ -44,5 +44,7 @@ namespace LessPaper.Shared.Implemenations.General
         public DateTime LatestChangeDate => _metadata.LatestChangeDate;
 
         public DateTime LatestViewDate => _metadata.LatestViewDate;
+
+        public DocumentLanguage Language { get; }
     }
 }

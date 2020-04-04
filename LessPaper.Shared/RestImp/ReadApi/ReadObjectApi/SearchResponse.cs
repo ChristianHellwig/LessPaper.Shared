@@ -5,13 +5,6 @@ namespace LessPaper.Shared.Implemenations.ReadApi
 {
     class SearchResponse : ISearchResponse
     {
-        public SearchResponse(string searchQuery, IFileMetadata[] files, IMinimalDirectoryMetadata[] directories)
-        {
-            this.SearchQuery = searchQuery;
-            this.Files = files;
-            this.Directories = directories;
-        }
-
         public string SearchQuery { get; }
 
         public IFileMetadata[] Files { get; }

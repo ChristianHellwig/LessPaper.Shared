@@ -8,11 +8,6 @@ namespace LessPaper.Shared.Implemenations.ReadApi
 {
     class ReadApi : IReadApi
     {
-        public ReadApi(IReadObjectApi objectApi)
-        {
-            this.ObjectApi = objectApi;
-        }
-
         public IReadObjectApi ObjectApi { get; }
     }
 }
