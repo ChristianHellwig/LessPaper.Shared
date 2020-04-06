@@ -21,15 +21,15 @@ namespace LessPaper.Shared.Implemenations.ReadApi
 
         public async Task<IMetadata> GetMetadata(string objectId, uint? revisionNumber)
         {
-            //RestClient restClient = new RestClient("");
             IRestRequest request = new RestRequest(ObjectApiPath);
             if (revisionNumber != default)
             {
                 request.AddQueryParameter("RevisionNumber", revisionNumber.ToString());
             }
             request.AddJsonBody(revisionNumber);
-            IMetadata response = await _restClient.GetAsync<Metadata>(request);
-            return response;
+
+            Metadata responseDerived = await _restClient.GetAsync<Metadata>(request);
+            return responseDerived;
         }
 
         public Task<Stream> GetObject(string objectId, uint? revisionNumber)

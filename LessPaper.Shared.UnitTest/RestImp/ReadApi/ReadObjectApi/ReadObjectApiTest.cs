@@ -4,8 +4,13 @@ using Xunit;
 using System;
 using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Implemenations.General;
-using Newtonsoft.Json;
 using RestSharp.Serializers.Utf8Json;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Moq.Protected;
+using System.Threading;
+using System.Net;
+using System.Collections.Generic;
 
 namespace LessPaper.Shared.Implemenations.ReadApi.UnitTests
 {
@@ -20,22 +25,39 @@ namespace LessPaper.Shared.Implemenations.ReadApi.UnitTests
         }
 
         [Fact]
-        public async void GetMetadataTest()
+        public async Task GetMetadataTest()
         {
-            IMetadata metadata = new Metadata {
+
+            Metadata metadata = new Metadata
+            {
                 ObjectId = "1",
                 ObjectName = "Name",
                 SizeInBytes = 1,
-                LatestChangeDate= new DateTime(2008, 5, 1, 8, 30, 52),
-                LatestViewDate= new DateTime(2009, 5, 1, 8, 30, 52) };
-            String test = new Utf8JsonSerializer().Serialize(metadata);
-            
+                LatestChangeDate = new DateTime(2008, 5, 1, 8, 30, 52),
+                LatestViewDate = new DateTime(2009, 5, 1, 8, 30, 52)
+            };
+
+            String metadataJson = new Utf8JsonSerializer().Serialize(metadata);
+
+            //Task<IMetadata> metadataTask = new Task<IMetadata>(metadata);
+            var restClient = new Mock<IRestClient>();
+            //restClient.SetupSet(x => x.BaseUrl = "https://api.careerbuilder.com/v1/categories");
+
+            restClient.Setup(x => x.ExecuteAsync<Metadata>(
+                It.IsAny<IRestRequest>(), 
+                It.IsAny<Action<IRestResponse<Metadata>, RestRequestAsyncHandle>>(),
+                It.IsAny<Method>()
+                )).Callback<IRestRequest, Action<IRestResponse, RestRequestAsyncHandle>>((request, callback) =>
+                {
+                    callback(new RestResponse { StatusCode = HttpStatusCode.OK, Content = metadataJson}, null);
+                });
 
 
-            IRestClient client = new RestSharp.RestClient(baseUrl);
-            client.UseUtf8Json();
 
-            ReadObjectApi readObjectApi = new ReadObjectApi(client);
+            //IRestClient client = new RestSharp.RestClient(baseUrl);
+            //client.UseUtf8Json();
+
+            ReadObjectApi readObjectApi = new ReadObjectApi(restClient.Object);
             IMetadata metadataResponse = await readObjectApi.GetMetadata("1",1);
 
             Assert.Equal("1", metadataResponse.ObjectId);
