@@ -7,6 +7,6 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <summary>
         /// Unique id set on uploading file
         /// </summary>
-        uint QuickNumber { get;  }
+        uint QuickNumber { get; }
     }
 }

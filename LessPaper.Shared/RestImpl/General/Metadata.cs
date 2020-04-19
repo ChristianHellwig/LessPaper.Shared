@@ -1,7 +1,7 @@
-﻿using LessPaper.Shared.Interfaces.General;
-using System;
+﻿using System;
+using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.Implemenations.General
+namespace LessPaper.Shared.RestImpl.General
 {
     public class Metadata : IMetadata
     {

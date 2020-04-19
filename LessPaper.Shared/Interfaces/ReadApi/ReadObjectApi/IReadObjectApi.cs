@@ -10,12 +10,13 @@ namespace LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi
         /// <summary>
         /// Download file or directory
         /// </summary>
+        /// <param name="responseStream">Stream to save the byte stream of an object</param>
         /// <param name="objectId">Id of file or directory</param>
         /// <param name="revisionNumber">Version number. Newest file when not set</param>
         /// <returns>Binary file</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         /// <exception cref="FileNotFoundException"></exception>
-        Task<Stream> GetObject(string objectId, uint? revisionNumber);
+        Task<bool> GetObject(Stream responseStream, string objectId, uint? revisionNumber);
 
         /// <summary>
         /// 

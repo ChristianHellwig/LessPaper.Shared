@@ -1,11 +1,11 @@
-﻿using LessPaper.Shared.Enums;
+﻿using System;
+using System.Threading.Tasks;
+using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.GuardApi;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
-using System;
-using System.Threading.Tasks;
 
-namespace LessPaper.Shared.Implemenations.GuardApi
+namespace LessPaper.Shared.RestImpl.GuardApi
 {
     class GuardApi : IGuardApi
     {

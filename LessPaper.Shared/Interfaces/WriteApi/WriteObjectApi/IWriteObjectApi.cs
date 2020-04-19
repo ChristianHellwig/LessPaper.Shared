@@ -16,11 +16,12 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="plaintextKey">Plaintext key used for encrypting the key</param>
         /// <param name="encryptedKey">Encrypted key used for saving in database</param>
         /// <param name="documentLanguage">Language of the file or all files in the directory</param>
+        /// <param name="fileName">Name of the File</param>
         /// <param name="fileExtension">Type of the file</param>
         /// <returns>Upload Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<IUploadMetadata> UploadFile(string directoryId, Stream file, string plaintextKey,
-            string encryptedKey, DocumentLanguage documentLanguage, ExtensionType fileExtension);
+            string encryptedKey, DocumentLanguage documentLanguage,string fileName, ExtensionType fileExtension);
 
         /// <summary>
         /// Create Directory
