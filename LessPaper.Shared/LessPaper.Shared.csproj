@@ -12,8 +12,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\GuardApi\Request\" />
-    <Folder Include="Models\" />
+    <Compile Remove="Interfaces\GuardApi\Request\**" />
+    <EmbeddedResource Remove="Interfaces\GuardApi\Request\**" />
+    <None Remove="Interfaces\GuardApi\Request\**" />
   </ItemGroup>
 
 </Project>

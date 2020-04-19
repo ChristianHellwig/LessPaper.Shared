@@ -16,7 +16,7 @@ namespace LessPaper.Shared.UnitTest
             "xUnit2017:Do not use Contains() to check if a value exists in a collection", Justification = "Faster test")]
         public void UniqueId()
         {
-            var generatedIds = new HashSet<string>(10000 * 3);
+            var generatedIds = new HashSet<string>(10000 * 6);
             for (var i = 0; i < 10000; i++)
             {
                 var newFileId = IdGenerator.NewId(IdType.File);
@@ -33,6 +33,21 @@ namespace LessPaper.Shared.UnitTest
                 Assert.False(generatedIds.Contains(newUndefinedId));
                 Assert.Equal(IdGenerator.IdLength, newUndefinedId.Length);
                 generatedIds.Add(newUndefinedId);
+                
+                var newUserId = IdGenerator.NewId(IdType.User);
+                Assert.False(generatedIds.Contains(newUserId));
+                Assert.Equal(IdGenerator.IdLength, newUserId.Length);
+                generatedIds.Add(newUserId);
+
+                var newTagId = IdGenerator.NewId(IdType.Tag);
+                Assert.False(generatedIds.Contains(newTagId));
+                Assert.Equal(IdGenerator.IdLength, newTagId.Length);
+                generatedIds.Add(newTagId);
+
+                var newPermissionId = IdGenerator.NewId(IdType.Permission);
+                Assert.False(generatedIds.Contains(newPermissionId));
+                Assert.Equal(IdGenerator.IdLength, newPermissionId.Length);
+                generatedIds.Add(newPermissionId);
             }
         }
 
@@ -53,6 +68,17 @@ namespace LessPaper.Shared.UnitTest
             Assert.True(IdGenerator.TypeFromId(newUndefinedId, out typeOfId));
             Assert.Equal(IdType.Undefined, typeOfId);
 
+            var newUserId = IdGenerator.NewId(IdType.User);
+            Assert.True(IdGenerator.TypeFromId(newUserId, out typeOfId));
+            Assert.Equal(IdType.User, typeOfId);
+
+            var newTagId = IdGenerator.NewId(IdType.Tag);
+            Assert.True(IdGenerator.TypeFromId(newTagId, out typeOfId));
+            Assert.Equal(IdType.Tag, typeOfId);
+
+            var newPermissionId = IdGenerator.NewId(IdType.Permission);
+            Assert.True(IdGenerator.TypeFromId(newPermissionId, out typeOfId));
+            Assert.Equal(IdType.Permission, typeOfId);
 
             // Check the length to ensure invalid ids are configured correct
             Assert.Equal(34, IdGenerator.IdLength);

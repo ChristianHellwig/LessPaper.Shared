@@ -1,6 +1,6 @@
 ﻿namespace LessPaper.Shared.Interfaces.Bucket
 {
-    public interface IBucket: IReadableBucket, IWriteableBucket
+    public interface IBucket: IReadableBucket, IWritableBucket
     {
     }
 }
