@@ -9,6 +9,8 @@ using Moq;
 using RestSharp;
 using Xunit;
 
+#pragma warning disable 618
+
 namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
 {
     public class ReadObjectApiTests

@@ -4,24 +4,52 @@ using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.GuardApi;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
+using LessPaper.Shared.RestImpl.General;
+using LessPaper.Shared.RestImpl.GuardApi.WriteObjectApi;
+using RestSharp;
 
 namespace LessPaper.Shared.RestImpl.GuardApi
 {
     class GuardApi : IGuardApi
     {
-        public Task<bool> AddDirectory(string parentDirectoryId, string directoryName, string newDirectoryId)
+        private const string ObjectApiPath = "/v1";
+        public IRestClient RestClient { get; set; }
+        public async Task<bool> AddDirectory(string parentDirectoryId, string directoryName, string newDirectoryId)
         {
-            throw new NotImplementedException();
+            // Request with to source
+            IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{parentDirectoryId}");
+            request.AddParameter("parentDirectoryId", parentDirectoryId, ParameterType.UrlSegment);
+
+            // Add query parameters
+            request.AddParameter("directoryName", directoryName, ParameterType.GetOrPost);
+            request.AddParameter("newDirectoryId", newDirectoryId, ParameterType.GetOrPost);
+
+            return await RestClient.PostAsync<bool>(request);
         }
 
-        public Task<int> AddFile(string directoryId, string fileId, int fileSize, string encryptedKey, DocumentLanguage documentLanguage, ExtensionType fileExtension)
+        public async Task<int> AddFile(string directoryId, string fileId, int fileSize, string encryptedKey,
+            DocumentLanguage documentLanguage, ExtensionType fileExtension)
         {
-            throw new NotImplementedException();
+            // Request with to source
+            IRestRequest request = new RestRequest(ObjectApiPath + "/files/{directoryId}");
+            request.AddParameter("directoryId", directoryId, ParameterType.UrlSegment);
+
+            // Add query parameters
+            request.AddParameter("fileId", fileId, ParameterType.GetOrPost);
+            request.AddParameter("fileSize", fileSize, ParameterType.GetOrPost);
+            request.AddParameter("encryptedKey", encryptedKey, ParameterType.GetOrPost);
+            request.AddParameter("documentLanguage", documentLanguage, ParameterType.GetOrPost);
+            request.AddParameter("fileExtension", fileExtension, ParameterType.GetOrPost);
+
+            return await RestClient.PostAsync<int>(request);
         }
 
-        public Task<bool> DeleteObject(string objectId)
+        public async Task<bool> DeleteObject(string objectId)
         {
-            throw new NotImplementedException();
+            // Request with to source
+            IRestRequest request = new RestRequest(ObjectApiPath + "/objects/{objectId}");
+            request.AddParameter("objectId", objectId, ParameterType.UrlSegment);
+            return await RestClient.DeleteAsync<bool>(request);
         }
 
         public Task<IPermissionResponse> GetObjectsPermissions(string userId, string[] objectIds)

@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
-using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
-using LessPaper.Shared.Interfaces.WriteApi;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
 using Moq;
 using RestSharp;
 using LessPaper.Shared.RestImpl.General;
 using LessPaper.Shared.RestImpl.WriteApi.WriteObjectApi;
 using Xunit;
+
 #pragma warning disable 618
 
 namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
