@@ -5,10 +5,11 @@ using System.Text;
 namespace LessPaper.Shared.Enums
 {
     [Flags]
-    public enum Permissions
+    public enum Permission
     {
         ReadDirectory,
         WriteDirectory,
+        
         ReadFile,
         WriteFile
     }

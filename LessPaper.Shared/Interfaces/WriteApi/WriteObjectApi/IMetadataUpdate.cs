@@ -7,6 +7,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// Object Name
         /// </summary>
         string ObjectName { get; }
+
         /// <summary>
         /// List of parent directories
         /// </summary>
