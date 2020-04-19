@@ -7,10 +7,9 @@ namespace LessPaper.Shared.Enums
     [Flags]
     public enum Permission
     {
-        ReadDirectory,
-        WriteDirectory,
-        
-        ReadFile,
-        WriteFile
+        ReadDirectory = 1,
+        WriteDirectory = 2,
+        ReadFile = 4,
+        WriteFile = 8,
     }
 }
