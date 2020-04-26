@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,22 +12,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\**" />
-    <EmbeddedResource Remove="Models\**" />
-    <None Remove="Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Interfaces\GuardApi\Request\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="4.7.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="RestSharp">
-      <HintPath>..\..\RestSharp\src\RestSharp\bin\Debug\netstandard2.0\RestSharp.dll</HintPath>
+      <HintPath>..\..\RestSharp\src\RestSharp.Serializers.SystemTextJson\bin\Debug\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.Serializers.SystemTextJson">
+      <HintPath>..\..\RestSharp\src\RestSharp.Serializers.SystemTextJson\bin\Debug\netstandard2.0\RestSharp.Serializers.SystemTextJson.dll</HintPath>
     </Reference>
   </ItemGroup>
 

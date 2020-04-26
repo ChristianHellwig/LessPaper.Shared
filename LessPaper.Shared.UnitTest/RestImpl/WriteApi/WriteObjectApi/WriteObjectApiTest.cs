@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
+using LessPaper.Shared.Models.General;
+using LessPaper.Shared.Models.WriteApi.WriteObjectApi;
 using Moq;
 using RestSharp;
-using LessPaper.Shared.RestImpl.General;
-using LessPaper.Shared.RestImpl.WriteApi.WriteObjectApi;
 using Xunit;
 
 #pragma warning disable 618
@@ -36,9 +36,9 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
                         }
                     }
             });
-            IWriteObjectApi writeObjectApi = 
-                new Shared.RestImpl.WriteApi.WriteObjectApi.WriteObjectApi { RestClient = restClient.Object};
-            IDirectoryMetadata directoryMetadata = await writeObjectApi.CreateDirectory("1", "2");
+            var writeObjectApi = 
+                new Models.WriteApi.WriteObjectApi.WriteObjectApi(restClient.Object);
+            var directoryMetadata = await writeObjectApi.CreateDirectory("1", "2");
 
             Assert.Equal(directoryMetadata.ObjectId,"1");
         }
@@ -59,7 +59,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
             });
 
             IWriteObjectApi writeObjectApi =
-                new Shared.RestImpl.WriteApi.WriteObjectApi.WriteObjectApi { RestClient = restClient.Object };
+                new Models.WriteApi.WriteObjectApi.WriteObjectApi(restClient.Object);
             bool requestSuccsess = await writeObjectApi.DeleteObject("1");
             Assert.True(requestSuccsess);
         }
@@ -81,7 +81,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
 
 
             IWriteObjectApi writeObjectApi =
-                new Shared.RestImpl.WriteApi.WriteObjectApi.WriteObjectApi { RestClient = restClient.Object };
+                new Models.WriteApi.WriteObjectApi.WriteObjectApi( restClient.Object );
 
             IMetadataUpdate metadataUpdate = new MetadataUpdate
             {
@@ -114,7 +114,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
 
 
             IWriteObjectApi writeObjectApi =
-                new Shared.RestImpl.WriteApi.WriteObjectApi.WriteObjectApi { RestClient = restClient.Object };
+                new Models.WriteApi.WriteObjectApi.WriteObjectApi (restClient.Object );
             byte[] objectBytes = { 255 };
             Stream objectStream = new MemoryStream(objectBytes);
             IUploadMetadata uploadMetadata = await writeObjectApi.UploadFile("1", objectStream, "plaintextKey",

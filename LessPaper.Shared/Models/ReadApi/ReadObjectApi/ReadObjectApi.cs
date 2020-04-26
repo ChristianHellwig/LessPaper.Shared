@@ -1,14 +1,13 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using LessPaper.Shared.RestImpl.ReadApi;
 using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
-using LessPaper.Shared.RestImpl.General;
+using LessPaper.Shared.Models.General;
 using RestSharp;
 
 //using System.ServiceModel.Dispatcher.JsonQueryStringConverter;
 
-namespace LessPaper.Shared.RestImpl.ReadApi.ReadObjectApi
+namespace LessPaper.Shared.Models.ReadApi.ReadObjectApi
 {
 
     public class ReadObjectApi : IReadObjectApi

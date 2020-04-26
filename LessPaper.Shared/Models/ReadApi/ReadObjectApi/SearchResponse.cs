@@ -1,7 +1,7 @@
 ﻿using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
 
-namespace LessPaper.Shared.RestImpl.ReadApi.ReadObjectApi
+namespace LessPaper.Shared.Models.ReadApi.ReadObjectApi
 {
     public class SearchResponse : ISearchResponse
     {

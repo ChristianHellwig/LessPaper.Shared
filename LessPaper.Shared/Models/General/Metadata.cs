@@ -1,7 +1,7 @@
 ﻿using System;
 using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.RestImpl.General
+namespace LessPaper.Shared.Models.General
 {
     public class Metadata : IMetadata
     {

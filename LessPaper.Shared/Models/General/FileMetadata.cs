@@ -2,7 +2,7 @@
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 
-namespace LessPaper.Shared.RestImpl.General
+namespace LessPaper.Shared.Models.General
 {
 
     class FileMetadata : IFileMetadata

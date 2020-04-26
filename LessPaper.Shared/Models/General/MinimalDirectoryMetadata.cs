@@ -1,14 +1,13 @@
 ﻿using System;
 using LessPaper.Shared.Interfaces.General;
-using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
 
-namespace LessPaper.Shared.RestImpl.WriteApi.WriteObjectApi
+namespace LessPaper.Shared.Models.General
 {
-    public class UploadMetadata : IUploadMetadata
+    public class MinimalDirectoryMetadata: IMinimalDirectoryMetadata
     {
         public IMetadata Metadata { get; set; }
 
-        public uint QuickNumber { get; set; }
+        public uint NumberOfChilds { get; set; }
 
         public string ObjectName => Metadata.ObjectName;
 

@@ -1,6 +1,6 @@
 ﻿using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
 
-namespace LessPaper.Shared.RestImpl.WriteApi.WriteObjectApi
+namespace LessPaper.Shared.Models.WriteApi.WriteObjectApi
 {
     public class MetadataUpdate : IMetadataUpdate
     {

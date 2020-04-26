@@ -1,26 +1,33 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
+using LessPaper.Shared.Interfaces.WriteApi;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
-using LessPaper.Shared.RestImpl.General;
+using LessPaper.Shared.Models.General;
 using RestSharp;
 
-namespace LessPaper.Shared.RestImpl.WriteApi.WriteObjectApi
+namespace LessPaper.Shared.Models.WriteApi.WriteObjectApi
 {
     public class WriteObjectApi : IWriteObjectApi
     {
+        public WriteObjectApi(IRestClient restClient)
+        {
+            RestClient = restClient;
+            RestClient.FailOnDeserializationError = true;
+            RestClient.ThrowOnDeserializationError = true;
+            RestClient.ThrowOnAnyError = true;
+        }
         private const string ObjectApiPath = "v1/objects";
         public IRestClient RestClient { get; set; }
         public async Task<IDirectoryMetadata> CreateDirectory(string directoryId, string subDirectoryName)
         {
             // Request with to source
-            IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{directoryId}");
-            request.AddParameter("directoryId", directoryId, ParameterType.UrlSegment);
+            IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{directory_id}");
+            request.AddParameter("directory_id", directoryId, ParameterType.UrlSegment);
 
             // Add query parameters
-            request.AddParameter("SubDirectoryName", subDirectoryName, ParameterType.GetOrPost);
+            request.AddParameter("sub_directory_name", subDirectoryName, ParameterType.GetOrPost);
 
             return await RestClient.PostAsync<DirectoryMetadata>(request);
         }

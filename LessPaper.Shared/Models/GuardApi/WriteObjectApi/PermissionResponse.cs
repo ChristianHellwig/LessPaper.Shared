@@ -1,7 +1,7 @@
 ﻿using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 
-namespace LessPaper.Shared.RestImpl.GuardApi.WriteObjectApi
+namespace LessPaper.Shared.Models.GuardApi.WriteObjectApi
 {
     class PermissionResponse : IPermissionResponse
     {

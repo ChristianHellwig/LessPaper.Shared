@@ -3,8 +3,8 @@ using System.Net;
 using System.Threading.Tasks;
 using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
-using LessPaper.Shared.RestImpl.General;
-using LessPaper.Shared.RestImpl.ReadApi.ReadObjectApi;
+using LessPaper.Shared.Models.General;
+using LessPaper.Shared.Models.ReadApi.ReadObjectApi;
 using Moq;
 using RestSharp;
 using Xunit;
@@ -38,7 +38,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
                     }
             );
 
-            Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi {RestClient = restClient.Object};
+            Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi {RestClient = restClient.Object};
             IMetadata metadataResponse = await readObjectApi.GetMetadata(objectID, revisionNumber);
 
             Assert.Equal(objectID, metadataResponse.ObjectId);
@@ -55,7 +55,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
                 It.IsAny<IRestRequest>())
             ).Returns(objectBytes);
 
-            Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
+            Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
             Stream objectResponse = new MemoryStream(); 
 
             bool noError = await readObjectApi.GetObject(objectResponse,"1", 2);
@@ -87,7 +87,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
                         }
                     });
 
-            Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Shared.RestImpl.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
+            Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
             ISearchResponse metadataResponse = await readObjectApi.Search(directoryId, searchQuery, count, page);
 
             Assert.Equal(searchQuery, metadataResponse.SearchQuery);

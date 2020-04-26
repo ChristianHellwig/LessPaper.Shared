@@ -4,11 +4,9 @@ using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.GuardApi;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
-using LessPaper.Shared.RestImpl.General;
-using LessPaper.Shared.RestImpl.GuardApi.WriteObjectApi;
 using RestSharp;
 
-namespace LessPaper.Shared.RestImpl.GuardApi
+namespace LessPaper.Shared.Models.GuardApi
 {
     class GuardApi : IGuardApi
     {
