@@ -35,7 +35,7 @@ namespace LessPaper.Shared.Interfaces.Database.Manager
         /// <param name="userId">Id of the user</param>
         /// <param name="objectIds">Object ids</param>
         /// <returns></returns>
-        Task<IPermissionResponse> GetDirectoryPermissions(string requestingUserId, string userId, string[] objectIds);
+        Task<IPermissionResponse[]> GetDirectoryPermissions(string requestingUserId, string userId, string[] objectIds);
         
         /// <summary>
         /// Retrieve metadata of an object

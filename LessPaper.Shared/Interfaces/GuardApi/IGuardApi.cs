@@ -39,7 +39,7 @@ namespace LessPaper.Shared.Interfaces.GuardApi
         /// <param name="objectIds">Requested object ids</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IPermissionResponse> GetObjectsPermissions(string requestingUserId, string userId, string[] objectIds);
+        Task<IPermissionResponse[]> GetObjectsPermissions(string requestingUserId, string userId, string[] objectIds);
 
         /// <summary>
         /// Add a directory to a directory
