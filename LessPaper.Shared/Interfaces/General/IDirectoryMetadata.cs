@@ -11,5 +11,7 @@
         /// Minimal information of directory childs
         /// </summary>
         IMinimalDirectoryMetadata[] DirectoryChilds { get; }
+
+
     }
 }

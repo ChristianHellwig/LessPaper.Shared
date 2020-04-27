@@ -13,7 +13,9 @@ namespace LessPaper.Shared.Enums
         File      = 02,
         Directory = 03,
 
-        Tag        = 04,
-        Permission = 05
+        FileBlob = 04,
+
+        Tag        = 05,
+        Permission = 06
     }
 }

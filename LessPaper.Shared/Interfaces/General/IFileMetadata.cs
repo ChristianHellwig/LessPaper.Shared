@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using LessPaper.Shared.Enums;
 
 namespace LessPaper.Shared.Interfaces.General
@@ -14,27 +15,7 @@ namespace LessPaper.Shared.Interfaces.General
         /// File extension
         /// </summary>
         ExtensionType Extension { get; }
-
-        /// <summary>
-        /// Upload date
-        /// </summary>
-        DateTime UploadDate { get; }
-
-        /// <summary>
-        /// Encrypted file encryption key
-        /// </summary>
-        string EncryptionKey { get; }
-
-        /// <summary>
-        /// Current version of file
-        /// </summary>
-        uint RevisionNumber { get;  }
-
-        /// <summary>
-        /// File hash
-        /// </summary>
-        string Hash { get;  }
-
+        
         /// <summary>
         /// Thumbnail id
         /// </summary>
@@ -43,7 +24,7 @@ namespace LessPaper.Shared.Interfaces.General
         /// <summary>
         /// Revision numbers of files with the same object id
         /// </summary>
-        uint[] Revisions { get; }
+        IFileRevision[] Revisions { get; }
 
         /// <summary>
         /// List of directories containing the current file
@@ -59,5 +40,13 @@ namespace LessPaper.Shared.Interfaces.General
         /// Language of the document
         /// </summary>
         DocumentLanguage Language { get;  }
+        
+        /// <summary>
+        /// Permissions
+        /// 
+        /// Key: UserId
+        /// Value: File Permissions (Flags)
+        /// </summary>
+        Dictionary<string, IFilePermission> Permissions { get; }
     }
 }

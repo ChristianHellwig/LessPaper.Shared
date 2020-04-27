@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using LessPaper.Shared.Enums;
 
 namespace LessPaper.Shared.Interfaces.General
 {
-    public interface IMetadata
+    public interface IFilePermission
     {
         /// <summary>
-        /// Filename
+        /// Encrypted Key
         /// </summary>
-        string ObjectName { get; }
+        string EncryptedKey { get; set; }
 
         /// <summary>
-        /// Unique object id
+        /// Permission
         /// </summary>
-        string ObjectId { get; }
-
+        Permission Permission { get; set; }
     }
 }

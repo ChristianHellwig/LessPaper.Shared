@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
@@ -67,16 +65,20 @@ namespace LessPaper.Shared.Interfaces.GuardApi
         /// <param name="requestingUserId">Id of the requesting user</param>
         /// <param name="directoryId">Directory Id</param>
         /// <param name="fileId">File id</param>
+        /// <param name="fileName">Name of the file</param>
         /// <param name="fileSize">Size/Length of the file</param>
         /// <param name="encryptedKey">Encrypted key</param>
         /// <param name="documentLanguage">Language of the document</param>
         /// <param name="fileExtension">Type of the file</param>
+        /// <param name="blobId">Id of the binary blob</param>
         /// <returns>Quick number</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<int> AddFile(
             string requestingUserId,
             string directoryId,
             string fileId,
+            string blobId,
+            string fileName,
             int fileSize, 
             string encryptedKey, 
             DocumentLanguage documentLanguage, 

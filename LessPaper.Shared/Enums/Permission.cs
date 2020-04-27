@@ -8,9 +8,9 @@ namespace LessPaper.Shared.Enums
     public enum Permission
     {
         Read = 1,
-        Write = 2,
+        ReadWrite = 3,
 
         ReadPermissions = 4,
-        WritePermissions = 8,
+        ReadWritePermissions = 12,
     }
 }

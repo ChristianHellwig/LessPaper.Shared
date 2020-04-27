@@ -26,28 +26,33 @@ namespace LessPaper.Shared.Interfaces.Database.Manager
         /// <param name="userId">Id of the user</param>
         /// <param name="objectIds">Object ids</param>
         /// <returns></returns>
-        Task<IPermissionResponse> GetFilePermissions(string requestingUserId, string userId, string[] objectIds);
+        Task<IPermissionResponse[]> GetFilePermissions(string requestingUserId, string userId, string[] objectIds);
 
         /// <summary>
-        /// Add a new file entry into a directory
+        /// Add a new file to a directory
         /// </summary>
         /// <param name="requestingUserId">Id of the requesting user</param>
-        /// <param name="directoryId">Id of the directory</param>
-        /// <param name="fileId">New id of the file</param>
-        /// <param name="fileSize">File size in bytes</param>
+        /// <param name="directoryId">Directory Id</param>
+        /// <param name="fileId">File id</param>
+        /// <param name="fileName">Name of the file</param>
+        /// <param name="fileSize">Size/Length of the file</param>
         /// <param name="encryptedKey">Encrypted key</param>
-        /// <param name="documentLanguage">Document language</param>
-        /// <param name="fileExtension">File extension</param>
-        /// <returns></returns>
+        /// <param name="documentLanguage">Language of the document</param>
+        /// <param name="fileExtension">Type of the file</param>
+        /// <param name="blobId">Id of the binary blob</param>
+        /// <returns>Quick number</returns>
+        /// <exception cref="InvalidOperationException">Throws if service not available</exception>
         Task<int> InsertFile(
             string requestingUserId,
             string directoryId,
             string fileId,
+            string blobId,
+            string fileName,
             int fileSize,
             string encryptedKey,
             DocumentLanguage documentLanguage,
             ExtensionType fileExtension);
-        
+
 
         /// <summary>
         /// Retrieve metadata of an object
