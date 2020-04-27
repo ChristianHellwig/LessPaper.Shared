@@ -8,6 +8,6 @@ namespace LessPaper.Shared.Models.GuardApi.WriteObjectApi
 
         public string ObjectId { get; set; }
 
-        public Permissions Permission { get; set; }
+        public Permission Permission { get; set; }
     }
 }

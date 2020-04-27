@@ -21,7 +21,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="fileExtension">Type of the file</param>
         /// <returns>Upload Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IUploadMetadata> UploadFile(string requestingUserId string directoryId, Stream file, string plaintextKey,
+        Task<IUploadMetadata> UploadFile(string requestingUserId, string directoryId, Stream file, string plaintextKey,
             string encryptedKey, DocumentLanguage documentLanguage,string fileName, ExtensionType fileExtension);
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="subDirectoryName">Name of new Directory</param>
         /// <returns>Directory Metadata</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<IDirectoryMetadata> CreateDirectory(string requestingUserId string directoryId, string subDirectoryName);
+        Task<IDirectoryMetadata> CreateDirectory(string requestingUserId, string directoryId, string subDirectoryName);
 
         /// <summary>
         /// Update Metadata of file or directory 
@@ -42,7 +42,7 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="metadataUpdate"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<bool> UpdateMetadata(string requestingUserId string objectId, IMetadataUpdate metadataUpdate);
+        Task<bool> UpdateMetadata(string requestingUserId, string objectId, IMetadataUpdate metadataUpdate);
 
         /// <summary>
         /// Flags Object as deleted
@@ -51,6 +51,6 @@ namespace LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi
         /// <param name="objectId"></param>
         /// <returns>Return true when file is deleted</returns>
         /// <exception cref="InvalidOperationException">Throws if service not available</exception>
-        Task<bool> DeleteObject(string requestingUserId string objectId, uint? revisionNr);
+        Task<bool> DeleteObject(string requestingUserId, string objectId, uint? revisionNr);
     }
 }

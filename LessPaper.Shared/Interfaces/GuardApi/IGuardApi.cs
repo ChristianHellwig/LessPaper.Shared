@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
+using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
 

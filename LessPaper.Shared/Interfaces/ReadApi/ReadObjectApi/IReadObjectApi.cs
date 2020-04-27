@@ -10,6 +10,7 @@ namespace LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi
         /// <summary>
         /// Download file or directory
         /// </summary>
+        /// <param name="requestingUserId">Id of the requesting user</param>
         /// <param name="responseStream">Stream to save the byte stream of an object</param>
         /// <param name="objectId">Id of file or directory</param>
         /// <param name="revisionNumber">Version number. Newest file when not set</param>

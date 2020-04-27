@@ -27,20 +27,14 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
                     StatusCode = HttpStatusCode.Accepted,
                     Data = new DirectoryMetadata
                     {
-                        MinimalDirectoryMetadata = new MinimalDirectoryMetadata()
-                        {
-                            Metadata = new Metadata()
-                            {
-                                ObjectId = "1"
-                            }
-                        }
+                            ObjectId = "1"
                     }
             });
             var writeObjectApi = 
                 new Models.WriteApi.WriteObjectApi.WriteObjectApi(restClient.Object);
-            var directoryMetadata = await writeObjectApi.CreateDirectory("1", "2");
+            var directoryMetadata = await writeObjectApi.CreateDirectory("1", "1", "2");
 
-            Assert.Equal(directoryMetadata.ObjectId,"1");
+            Assert.Equal("1", directoryMetadata.ObjectId);
         }
 
         [Fact]
@@ -60,7 +54,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
 
             IWriteObjectApi writeObjectApi =
                 new Models.WriteApi.WriteObjectApi.WriteObjectApi(restClient.Object);
-            bool requestSuccsess = await writeObjectApi.DeleteObject("1");
+            var requestSuccsess = await writeObjectApi.DeleteObject("1", "1", 1);
             Assert.True(requestSuccsess);
         }
 
@@ -88,7 +82,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
                 ObjectName = "2"
             };
 
-            bool requestSuccsess = await writeObjectApi.UpdateMetadata("1", metadataUpdate);
+            bool requestSuccsess = await writeObjectApi.UpdateMetadata("1", "1", metadataUpdate);
             Assert.True(requestSuccsess);
         }
 
@@ -105,10 +99,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
                 StatusCode = HttpStatusCode.Accepted,
                 Data = new UploadMetadata
                 {
-                    Metadata = new Metadata
-                    {
-                        ObjectId = "1"
-                    }
+                    ObjectId = "1"
                 }
             });
 
@@ -117,7 +108,8 @@ namespace LessPaper.Shared.UnitTest.RestImpl.WriteApi.WriteObjectApi
                 new Models.WriteApi.WriteObjectApi.WriteObjectApi (restClient.Object );
             byte[] objectBytes = { 255 };
             Stream objectStream = new MemoryStream(objectBytes);
-            IUploadMetadata uploadMetadata = await writeObjectApi.UploadFile("1", objectStream, "plaintextKey",
+            var uploadMetadata = await writeObjectApi.UploadFile("1","1",
+                objectStream, "plaintextKey",
                 "encryptedKey",DocumentLanguage.German,"fileName",ExtensionType.Docx);
 
             Assert.Equal("1", uploadMetadata.ObjectId);

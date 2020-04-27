@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LessPaper.Shared.Enums;
+using LessPaper.Shared.Interfaces.General;
 using LessPaper.Shared.Interfaces.GuardApi;
 using LessPaper.Shared.Interfaces.GuardApi.Response;
 using LessPaper.Shared.Interfaces.WriteApi.WriteObjectApi;
@@ -12,7 +13,13 @@ namespace LessPaper.Shared.Models.GuardApi
     {
         private const string ObjectApiPath = "/v1";
         public IRestClient RestClient { get; set; }
-        public async Task<bool> AddDirectory(string parentDirectoryId, string directoryName, string newDirectoryId)
+
+        public Task<IPermissionResponse[]> GetObjectsPermissions(string requestingUserId, string userId, string[] objectIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> AddDirectory(string requestingUserId, string parentDirectoryId, string directoryName, string newDirectoryId)
         {
             // Request with to source
             IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{parentDirectoryId}");
@@ -25,7 +32,7 @@ namespace LessPaper.Shared.Models.GuardApi
             return await RestClient.PostAsync<bool>(request);
         }
 
-        public async Task<int> AddFile(string directoryId, string fileId, int fileSize, string encryptedKey,
+        public async Task<int> AddFile(string requestingUserId, string directoryId, string fileId, int fileSize, string encryptedKey,
             DocumentLanguage documentLanguage, ExtensionType fileExtension)
         {
             // Request with to source
@@ -42,7 +49,7 @@ namespace LessPaper.Shared.Models.GuardApi
             return await RestClient.PostAsync<int>(request);
         }
 
-        public async Task<bool> DeleteObject(string objectId)
+        public async Task<bool> DeleteObject(string requestingUserId, string objectId)
         {
             // Request with to source
             IRestRequest request = new RestRequest(ObjectApiPath + "/objects/{objectId}");
@@ -50,12 +57,7 @@ namespace LessPaper.Shared.Models.GuardApi
             return await RestClient.DeleteAsync<bool>(request);
         }
 
-        public Task<IPermissionResponse> GetObjectsPermissions(string userId, string[] objectIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICredentialsResponse> GetUserCredentials(string email)
+        public Task<IMinimalUserInformation> GetUserCredentials(string email)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +67,17 @@ namespace LessPaper.Shared.Models.GuardApi
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateObjectMetadata(string objectId, IMetadataUpdate updatedMetadata)
+        public Task<bool> UpdateObjectMetadata(string requestingUserId, string objectId, IMetadataUpdate updatedMetadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IMetadata> GetMetadata(string requestingUserId, string objectId, uint? revisionNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ISearchResult> Search(string requestingUserId, string directoryId, string searchQuery, uint count, uint page)
         {
             throw new NotImplementedException();
         }

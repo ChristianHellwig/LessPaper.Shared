@@ -3,7 +3,7 @@ using LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi;
 
 namespace LessPaper.Shared.Models.ReadApi.ReadObjectApi
 {
-    public class SearchResponse : ISearchResponse
+    public class SearchResponse : ISearchResult
     {
         public string SearchQuery { get; set; }
 

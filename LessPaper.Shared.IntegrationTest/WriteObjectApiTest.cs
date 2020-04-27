@@ -20,14 +20,16 @@ namespace LessPaper.Shared.IntegrationTest
         [Fact]
         public async void CreateDirectoryTest()
         {
-            var directoryMetadata = await writeApi.ObjectApi.CreateDirectory(IdGenerator.NewId(IdType.), IdGenerator.NewId(IdType.Directory),
+            var directoryMetadata = await writeApi.ObjectApi.CreateDirectory(IdGenerator.NewId(IdType.User),
+                IdGenerator.NewId(IdType.Directory),
                 "TestTest");
         }
 
         [Fact]
         public async void DeleteObjectTest()
         {
-            var success = await writeApi.ObjectApi.DeleteObject(IdGenerator.NewId(IdType.Directory));
+            var success = await writeApi.ObjectApi.DeleteObject(IdGenerator.NewId(IdType.User),
+                IdGenerator.NewId(IdType.Directory),1);
         }
     }
 }

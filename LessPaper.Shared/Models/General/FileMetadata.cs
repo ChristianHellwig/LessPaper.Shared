@@ -1,14 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Models.General
 {
 
-    class FileMetadata : IFileMetadata
+    class FileMetadata : Metadata, IFileMetadata
     {
-        internal IMetadata Metadata { get; set; }
-
         public uint QuickNumber { get; set; }
 
         public ExtensionType Extension { get; set; }
@@ -28,16 +27,6 @@ namespace LessPaper.Shared.Models.General
         public string[] ParentDirectoryIds { get; set; }
 
         public ITag[] Tags { get; set; }
-
-        public string ObjectName => Metadata.ObjectName;
-
-        public string ObjectId => Metadata.ObjectId;
-
-        public uint SizeInBytes => Metadata.SizeInBytes;
-
-        public DateTime LatestChangeDate => Metadata.LatestChangeDate;
-
-        public DateTime LatestViewDate => Metadata.LatestViewDate;
 
         public DocumentLanguage Language { get; set; }
     }

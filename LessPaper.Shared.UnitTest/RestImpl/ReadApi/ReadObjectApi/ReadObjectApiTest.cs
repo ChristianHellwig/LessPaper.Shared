@@ -39,7 +39,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
             );
 
             Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi {RestClient = restClient.Object};
-            IMetadata metadataResponse = await readObjectApi.GetMetadata(objectID, revisionNumber);
+            IMetadata metadataResponse = await readObjectApi.GetMetadata("1", objectID, revisionNumber);
 
             Assert.Equal(objectID, metadataResponse.ObjectId);
         }
@@ -58,7 +58,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
             Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
             Stream objectResponse = new MemoryStream(); 
 
-            bool noError = await readObjectApi.GetObject(objectResponse,"1", 2);
+            var noError = await readObjectApi.GetObject("1", objectResponse,"1", 2);
 
             Assert.True(noError);
             Assert.True(objectStream.ToString().Equals(objectResponse.ToString()));
@@ -88,7 +88,7 @@ namespace LessPaper.Shared.UnitTest.RestImpl.ReadApi.ReadObjectApi
                     });
 
             Models.ReadApi.ReadObjectApi.ReadObjectApi readObjectApi = new Models.ReadApi.ReadObjectApi.ReadObjectApi { RestClient = restClient.Object };
-            ISearchResponse metadataResponse = await readObjectApi.Search(directoryId, searchQuery, count, page);
+            var metadataResponse = await readObjectApi.Search("1", directoryId, searchQuery, count, page);
 
             Assert.Equal(searchQuery, metadataResponse.SearchQuery);
         }

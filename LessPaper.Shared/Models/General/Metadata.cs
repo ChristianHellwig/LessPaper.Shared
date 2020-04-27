@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using LessPaper.Shared.Enums;
 using LessPaper.Shared.Interfaces.General;
 
 namespace LessPaper.Shared.Models.General
@@ -15,5 +17,6 @@ namespace LessPaper.Shared.Models.General
 
         public DateTime LatestViewDate { get; set; }
 
+        public Dictionary<string, Permission> Permissions { get; set; }
     }
 } 
