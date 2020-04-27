@@ -20,7 +20,7 @@ namespace LessPaper.Shared.IntegrationTest
         [Fact]
         public async void CreateDirectoryTest()
         {
-            var directoryMetadata = await writeApi.ObjectApi.CreateDirectory(IdGenerator.NewId(IdType.Directory),
+            var directoryMetadata = await writeApi.ObjectApi.CreateDirectory(IdGenerator.NewId(IdType.), IdGenerator.NewId(IdType.Directory),
                 "TestTest");
         }
 

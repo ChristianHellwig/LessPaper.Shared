@@ -22,7 +22,7 @@ namespace LessPaper.Shared.Models.General
 
         public static IRestRequest AddRevisionNr(this IRestRequest restRequest, uint? revisionNr)
         {
-            if 
+            //if 
             restRequest.AddParameter("revision_nr", revisionNr, ParameterType.UrlSegment);
             return restRequest;
         }
