@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace LessPaper.Shared.Interfaces.Bucket
 {
-    public interface IWriteableBucket
+    public interface IWritableBucket
     {
         /// <summary>
         /// Encrypt and upload file

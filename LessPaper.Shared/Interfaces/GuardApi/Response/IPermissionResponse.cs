@@ -6,6 +6,6 @@ namespace LessPaper.Shared.Interfaces.GuardApi.Response
     {
         string ObjectId { get; }
 
-        Permissions Permission { get; }
+        Permission Permission { get; }
     }
 }

@@ -1,8 +1,6 @@
-﻿using LessPaper.Shared.Interfaces.General;
-
-namespace LessPaper.Shared.Interfaces.ReadApi.ReadObjectApi
+﻿namespace LessPaper.Shared.Interfaces.General
 {
-    public interface ISearchResponse
+    public interface ISearchResult
     {
         /// <summary>
         /// Search query

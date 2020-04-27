@@ -4,7 +4,12 @@
     {
         Undefined = 00,
 
-        File      = 01,
-        Directory = 02,
+        User      = 01,
+
+        File      = 02,
+        Directory = 03,
+
+        Tag        = 04,
+        Permission = 05
     }
 }
