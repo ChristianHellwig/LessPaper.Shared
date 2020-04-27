@@ -20,27 +20,28 @@ namespace LessPaper.Shared.Models.WriteApi.WriteObjectApi
         }
         private const string ObjectApiPath = "v1/objects";
         public IRestClient RestClient { get; set; }
-        public async Task<IDirectoryMetadata> CreateDirectory(string directoryId, string subDirectoryName)
-        {
-            // Request with to source
-            IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{directory_id}");
-            request.AddParameter("directory_id", directoryId, ParameterType.UrlSegment);
 
-            // Add query parameters
-            request.AddParameter("sub_directory_name", subDirectoryName, ParameterType.GetOrPost);
+        public async Task<IDirectoryMetadata> CreateDirectory(string userId, string directoryId, string subDirectoryName)
+        {
+            IRestRequest request = new RestRequest(ObjectApiPath + "/directories/{directory_id}")
+                .AddDirectoryId(directoryId)
+                .AddUserId(userId)
+                .AddSubDirecotryName(subDirectoryName);
 
             return await RestClient.PostAsync<DirectoryMetadata>(request);
         }
 
-        public async Task<bool> DeleteObject(string objectId)
+        public async Task<bool> DeleteObject(string userId, string objectId, uint? revisionNr)
         {
-            IRestRequest request = new RestRequest(ObjectApiPath + "/{objectId}");
-            request.AddParameter("objectId", objectId, ParameterType.UrlSegment);
+            IRestRequest request = new RestRequest(ObjectApiPath + "/{objectId}")
+                .AddUserId(userId)
+                .AddObjectId(objectId).AddRevisionNr(revisionNr);
+
             return await RestClient.DeleteAsync<bool>(request);
 
         }
 
-        public async Task<bool> UpdateMetadata(string objectId, IMetadataUpdate metadataUpdate)
+        public async Task<bool> UpdateMetadata(string userId, string objectId, IMetadataUpdate metadataUpdate)
         {
             IRestRequest request = new RestRequest(ObjectApiPath + "/{objectId}");
             request.AddParameter("objectId", objectId, ParameterType.UrlSegment);
@@ -49,7 +50,7 @@ namespace LessPaper.Shared.Models.WriteApi.WriteObjectApi
             return await RestClient.PatchAsync<bool>(request);
         }
 
-        public async Task<IUploadMetadata> UploadFile(string objectId, Stream file, string plaintextKey,
+        public async Task<IUploadMetadata> UploadFile(string userId, string objectId, Stream file, string plaintextKey,
             string encryptedKey, DocumentLanguage documentLanguage, string fileName, ExtensionType fileExtension)
         {
 
