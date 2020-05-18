@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using LessPaper.Shared.Enums;
 
 namespace LessPaper.Shared.Interfaces.General
 {
-    public interface IFileRevision
+    public interface IFileRevision : IIdentifiable
     {
         /// <summary>
-        /// Revisionsnummer
+        /// Unique id set on uploading file
         /// </summary>
-        uint RevisionNumber { get; }
-
+        uint QuickNumber { get; }
+        
         /// <summary>
         /// Size of the object in Bytes
         /// </summary>
@@ -20,10 +21,13 @@ namespace LessPaper.Shared.Interfaces.General
         /// Date of last change
         /// </summary>
         DateTime ChangeDate { get; }
-
+        
         /// <summary>
-        /// File name
+        /// Permissions
+        /// 
+        /// Key: UserId
+        /// Value: Encrypted key
         /// </summary>
-        string BlobId { get; }
+        Dictionary<string, IAccessKey> AccessKeys { get; }
     }
 }

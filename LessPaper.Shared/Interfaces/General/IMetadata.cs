@@ -4,17 +4,20 @@ using LessPaper.Shared.Enums;
 
 namespace LessPaper.Shared.Interfaces.General
 {
-    public interface IMetadata
+    public interface IMetadata : IIdentifiable
     {
         /// <summary>
         /// Filename
         /// </summary>
         string ObjectName { get; }
 
-        /// <summary>
-        /// Unique object id
-        /// </summary>
-        string ObjectId { get; }
 
+        /// <summary>
+        /// Permissions
+        /// 
+        /// Key: UserId
+        /// Value: Permission (Flags)
+        /// </summary>
+        Dictionary<string, Permission> Permissions { get; }
     }
 }

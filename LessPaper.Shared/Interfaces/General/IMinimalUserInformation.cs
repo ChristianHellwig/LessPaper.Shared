@@ -25,5 +25,10 @@ namespace LessPaper.Shared.Interfaces.General
         /// Id of the root directory
         /// </summary>
         string RootDirectoryId { get; }
+
+        /// <summary>
+        /// Encrypted private key
+        /// </summary>
+        string EncryptedPrivateKey { get; }
     }
 }

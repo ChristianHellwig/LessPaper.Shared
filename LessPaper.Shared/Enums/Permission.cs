@@ -12,5 +12,7 @@ namespace LessPaper.Shared.Enums
 
         ReadPermissions = 4,
         ReadWritePermissions = 12,
+
+        Share = 16
     }
 }

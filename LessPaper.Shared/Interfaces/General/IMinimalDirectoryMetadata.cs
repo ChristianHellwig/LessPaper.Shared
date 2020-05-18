@@ -12,12 +12,5 @@ namespace LessPaper.Shared.Interfaces.General
         uint NumberOfChilds { get; }
 
 
-        /// <summary>
-        /// Permissions
-        /// 
-        /// Key: UserId
-        /// Value: Permission (Flags)
-        /// </summary>
-        Dictionary<string, Permission> Permissions { get; }
     }
 }

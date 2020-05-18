@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using LessPaper.Shared.Helper;
 using Xunit;
 
@@ -41,6 +43,32 @@ namespace LessPaper.Shared.UnitTest
             var hash5 = CryptoHelper.Sha256FromString("a", "a");
             var hash6 = CryptoHelper.Sha256FromString("b", "a");
             Assert.NotEqual(hash5, hash6);
+        }
+
+        [Fact]
+        public void Bench()
+        {
+            var kp = CryptoHelper.GenerateRsaKeyPair();
+
+
+
+            var start = DateTime.UtcNow;
+            for (int i = 0; i < 100000; i++)
+            {
+                var e = CryptoHelper.AesEncrypt("", "", CryptoHelper.GetSalt(16));
+            }
+            var duration2 = DateTime.UtcNow - start;
+
+
+            start = DateTime.UtcNow;
+            for (int i = 0; i < 10000; i++)
+            {
+                var e = CryptoHelper.RsaEncrypt(kp.PublicKey, CryptoHelper.GetSalt(16));
+            }
+
+            var duration1 = DateTime.UtcNow - start;
+
+            Console.WriteLine("d");
         }
     }
 }

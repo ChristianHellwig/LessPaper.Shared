@@ -89,5 +89,28 @@ namespace LessPaper.Shared.Helper
 
             return Convert.ToBase64String(ciphertext);
         }
+
+
+        public static string AesEncrypt(string key, string iv, string plainText)
+        {
+            // with the specified key and IV. 
+            using (RijndaelManaged rijAlg = new RijndaelManaged())
+            {
+                rijAlg.GenerateIV();
+                rijAlg.GenerateKey();
+
+                ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
+                
+                using MemoryStream msEncrypt = new MemoryStream();
+                using CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
+                using StreamWriter swEncrypt = new StreamWriter(csEncrypt);
+               
+                swEncrypt.Write(plainText);
+
+                return Convert.ToBase64String(msEncrypt.ToArray());
+            }
+        }
+
+
     }
 }

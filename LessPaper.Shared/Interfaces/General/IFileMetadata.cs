@@ -7,11 +7,6 @@ namespace LessPaper.Shared.Interfaces.General
     public interface IFileMetadata : IMetadata
     {
         /// <summary>
-        /// Unique id set on uploading file
-        /// </summary>
-        uint QuickNumber { get; }
-
-        /// <summary>
         /// File extension
         /// </summary>
         ExtensionType Extension { get; }
@@ -26,10 +21,10 @@ namespace LessPaper.Shared.Interfaces.General
         /// </summary>
         IFileRevision[] Revisions { get; }
 
-        /// <summary>
-        /// List of directories containing the current file
-        /// </summary>
-        string[] ParentDirectoryIds { get; }
+        ///// <summary>
+        ///// List of directories containing the current file
+        ///// </summary>
+        //string[] ParentDirectoryIds { get; }
 
         /// <summary>
         /// List of tags linked to the current file
@@ -41,12 +36,5 @@ namespace LessPaper.Shared.Interfaces.General
         /// </summary>
         DocumentLanguage Language { get;  }
         
-        /// <summary>
-        /// Permissions
-        /// 
-        /// Key: UserId
-        /// Value: File Permissions (Flags)
-        /// </summary>
-        Dictionary<string, IFilePermission> Permissions { get; }
     }
 }
