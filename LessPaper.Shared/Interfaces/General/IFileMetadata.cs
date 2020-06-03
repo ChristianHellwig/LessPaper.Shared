@@ -21,11 +21,6 @@ namespace LessPaper.Shared.Interfaces.General
         /// </summary>
         IFileRevision[] Revisions { get; }
 
-        ///// <summary>
-        ///// List of directories containing the current file
-        ///// </summary>
-        //string[] ParentDirectoryIds { get; }
-
         /// <summary>
         /// List of tags linked to the current file
         /// </summary>

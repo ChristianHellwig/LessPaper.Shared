@@ -27,6 +27,17 @@ namespace LessPaper.Shared.Helper
         }
 
         /// <summary>
+        /// Check if id is a specific type
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="targetIdType">Target type</param>
+        /// <returns>True if type is matched</returns>
+        public static bool IsType(string id, IdType targetIdType)
+        {
+            return TypeFromId(id, out var idType) && idType == targetIdType;
+        }
+
+        /// <summary>
         /// Determines the type of an id
         /// </summary>
         /// <param name="id">Id</param>

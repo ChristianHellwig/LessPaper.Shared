@@ -10,8 +10,7 @@ namespace LessPaper.Shared.Interfaces.General
         /// Filename
         /// </summary>
         string ObjectName { get; }
-
-
+        
         /// <summary>
         /// Permissions
         /// 
@@ -19,5 +18,10 @@ namespace LessPaper.Shared.Interfaces.General
         /// Value: Permission (Flags)
         /// </summary>
         Dictionary<string, Permission> Permissions { get; }
+
+        /// <summary>
+        /// Path
+        /// </summary>
+        string Path { get;  }
     }
 }
